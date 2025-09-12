@@ -7,11 +7,26 @@ import { Input } from "src/components/input";
 import { Textarea } from "src/components/textarea";
 import { toast } from "sonner";
 import { FavoriteCard } from "src/components/FavoriteCard"
+import { submitRec } from 'src/lib/submitRec';
 
 export default function PersonalCornerPage() {
   const [filmForm, setFilmForm] = useState({ title: '', reason: '', recommender: '' });
   const [bookForm, setBookForm] = useState({ title: '', reason: '', recommender: '' });
   const [songForm, setSongForm] = useState({ title: '', reason: '', recommender: '' });
+
+  const handleSubmitRecommendation = async (
+    type: 'film' | 'book' | 'song',
+    form: any,
+    setForm: any
+  ) => {
+    try {
+      await submitRec(type, form);
+      toast.success(`Thanks for the ${type} recommendation!`);
+      setForm({ title: '', reason: '', recommender: '' });
+    } catch (e: any) {
+      toast.error(e?.message ?? "Something went wrong");
+    }
+  };
 
   type Film = { title: string; year: string; reason: string; image?: string; };
   const favoriteFilms = [
@@ -36,16 +51,6 @@ export default function PersonalCornerPage() {
     { title: "Child of the Earth", artist: "Mr Kitty", reason: "Synthwave vibes for late-night programming", image: "songs/childoftheearth.png" },
     { title: "Children", artist: "Robert Miles", reason: "Emotional and inspiring for creative work", image: "songs/children.png" }
   ];
-
-  const handleSubmitRecommendation = (type: 'film' | 'book' | 'song', form: any, setForm: any) => {
-    if (!form.title || !form.reason || !form.recommender) {
-      toast.error('Please fill in all fields');
-      return;
-    }
-
-    toast.success(`Thanks for the ${type} recommendation!`);
-    setForm({ title: '', reason: '', recommender: '' });
-  };
 
   return (
     <div className="min-h-screen bg-background pt-20">

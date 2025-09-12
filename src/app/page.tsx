@@ -21,7 +21,7 @@ export default function Home() {
       title: "LetsMeetAt",
       description: "A full-stack web application built with React, Node.js, and PostgreSQL",
       technologies: ["React", "Node.js", "PostgreSQL", "Docker"],
-      image: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwxfHx8fDE3NTc1ODA0Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "projects/letsmeetat.png"
     }
   ];
 
@@ -84,15 +84,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4">
               <p>
-                Currently in my third year of Computer Science at State University, I've developed a strong
-                foundation in algorithms, data structures, and software engineering principles. My journey
-                into programming began with curiosity about how websites work, and has evolved into a passion
-                for creating meaningful digital experiences.
+                I’m a senior studying Computer Science at UC Berkeley. I build full-stack web apps and backend systems, 
+                grounded in algorithms, data structures, and solid software engineering. I like shipping clean, reliable 
+                features—from API design to polished UI.
               </p>
               <p>
-                I enjoy tackling complex problems and am particularly interested in full-stack web development,
-                machine learning, and open-source contributions. When I'm not coding, you can find me exploring
-                new technologies, reading tech blogs, or working on personal projects.
+                In my free time I really enjoy watching films, Reading, and listening to EDM, If you would like
+                to know about my favorite films, books and songs feel free to check out my personal corner :)
               </p>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="secondary">JavaScript</Badge>
@@ -107,7 +105,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1566915896913-549d796d2166?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjB3b3Jrc3BhY2UlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzU3NjA1NjY2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="asjbdasb"
                 alt="Coding workspace"
                 className="w-full h-80 object-cover rounded-lg"
               />
@@ -198,8 +196,8 @@ export default function Home() {
           </p>
           <Button asChild size="lg" className="gap-2">
             <a href='/resume.pdf' download>
-            <Download className="w-5 h-5" />
-            Download Resume (PDF)
+              <Download className="w-5 h-5" />
+              Download Resume (PDF)
             </a>
           </Button>
         </div>
@@ -224,14 +222,14 @@ export default function Home() {
                 GitHub
               </Link>
             </Button>
-          <Button asChild variant="outline" size="lg" className="gap-2">
-            <Link href={'https://www.linkedin.com/in/myeverino2003/'} target='_blank'>
-              <Linkedin className="w-5 h-5" />
-              LinkedIn
-            </Link>
-          </Button>
+            <Button asChild variant="outline" size="lg" className="gap-2">
+              <Link href={'https://www.linkedin.com/in/myeverino2003/'} target='_blank'>
+                <Linkedin className="w-5 h-5" />
+                LinkedIn
+              </Link>
+            </Button>
+          </div>
         </div>
-    </div>
       </section >
     </div >
   );
