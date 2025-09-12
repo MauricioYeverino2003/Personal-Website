@@ -196,9 +196,11 @@ export default function Home() {
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Download my latest resume to learn more about my education, experience, and skills.
           </p>
-          <Button size="lg" className="gap-2">
+          <Button asChild size="lg" className="gap-2">
+            <a href='/resume.pdf' download>
             <Download className="w-5 h-5" />
             Download Resume (PDF)
+            </a>
           </Button>
         </div>
       </section>
@@ -214,20 +216,24 @@ export default function Home() {
           <div className="flex justify-center gap-4">
             <Button variant="outline" size="lg" className="gap-2">
               <Mail className="w-5 h-5" />
-              alex.chen@email.com
+              mauricio_yeverino@berkeley.edu
             </Button>
-            <Button variant="outline" size="lg" className="gap-2">
-              <Github className="w-5 h-5" />
-              GitHub
+            <Button asChild variant="outline" size="lg" className="gap-2">
+              <Link href={"https://github.com/MauricioYeverino2003"}>
+                <Github className="w-5 h-5" />
+                GitHub
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="gap-2">
+          <Button asChild variant="outline" size="lg" className="gap-2">
+            <Link href={'https://www.linkedin.com/in/myeverino2003/'} target='_blank'>
               <Linkedin className="w-5 h-5" />
               LinkedIn
-            </Button>
-          </div>
+            </Link>
+          </Button>
         </div>
-      </section>
     </div>
+      </section >
+    </div >
   );
 }
 
