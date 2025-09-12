@@ -40,7 +40,6 @@ export default function PersonalCornerPage() {
       return;
     }
     
-    // In a real app, this would send to your backend
     toast.success(`Thanks for the ${type} recommendation!`);
     setForm({ title: '', reason: '', recommender: '' });
   };
