@@ -5,33 +5,36 @@ import { Button } from 'src/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "src/components/Card"
 import { Input } from "src/components/input";
 import { Textarea } from "src/components/textarea";
-import { ImageWithFallback } from 'src/components/ImageWithFallback';
 import { toast } from "sonner";
+import { FavoriteCard } from "src/components/FavoriteCard"
 
 export default function PersonalCornerPage() {
   const [filmForm, setFilmForm] = useState({ title: '', reason: '', recommender: '' });
   const [bookForm, setBookForm] = useState({ title: '', reason: '', recommender: '' });
   const [songForm, setSongForm] = useState({ title: '', reason: '', recommender: '' });
 
+  type Film = { title: string; year: string; reason: string; image?: string; };
   const favoriteFilms = [
-    { title: "Cinema Paradiso", year: "1988", reason: "Perfect potrayal of life and love, my favorite film and the comfort of my soul, everytime I see it life makes sense" },
-    { title: "Solaris", year: "1972", reason: "No matter how long we travel through the cosmos, we will carry the weight of the human condition with us, inescapably" },
-    { title: "A Clockwork Orange", year: "1971", reason: "A bizarre collision of absuridity and dread. No really, the film is so absurd but beautifully made that has become one o fmy favorites"},
-    { title: "Blade Runner: Director's Cut", year: "2007", reason: "Cyberpunk dystopian society clashes with desire of replicants to experience being human." }
+    { title: "Cinema Paradiso", year: "1988", reason: "Perfect potrayal of life and love, my favorite film and the comfort of my soul, everytime I see it life makes sense", image: "films/cinemaparadiso.png" },
+    { title: "Solaris", year: "1972", reason: "No matter how long we travel through the cosmos, we will carry the weight of the human condition with us, inescapably", image: "films/solaris.png" },
+    { title: "A Clockwork Orange", year: "1971", reason: "A bizarre collision of absuridity and dread. No really, the film is so absurd but beautifully made that has become one o fmy favorites", image: "films/aclockworkorange.png" },
+    { title: "Blade Runner: Director's Cut", year: "2007", reason: "Cyberpunk dystopian society clashes with desire of replicants to experience being human.", image: "films/bladerunner.png" }
   ];
 
+  type Book = { title: string; author: string; reason: string; image?: string; };
   const favoriteBooks = [
-    { title: "La Ciudad Y los Perros", author: "Mario Vargas Llosa", reason: "Essential reading for any developer" },
-    { title: "Beneath the wheel", author: "Hermann Hesse", reason: "A reminder that chasing success and studies can break you. Caring for your soul and not losing yourself in the pressure is what keeps you truly alive."},
-    { title: "The Man Who Laughs", author: "Victor Hugo", reeason: "A disfigured man cast aside, rises from humble means to a life of power. In that climb his heart and values are tested against the weight of his new world."},
-    { title: "Firepunch", author: "Tatsuki Fujimoto", reason: "A ruined world full of pain and cruelty, yet through all the suffering it reminds us to keep living."  }
+    { title: "La Ciudad Y los Perros", author: "Mario Vargas Llosa", reason: "Essential reading for any developer", image: "books/laciudadylosperros.png" },
+    { title: "Beneath the wheel", author: "Hermann Hesse", reason: "A reminder that chasing success and studies can break you. Caring for your soul and not losing yourself in the pressure is what keeps you truly alive.", image: "books/beneaththewheel.png" },
+    { title: "The Man Who Laughs", author: "Victor Hugo", reason: "A disfigured man cast aside, rises from humble means to a life of power. In that climb his heart and values are tested against the weight of his new world.", image: "books/themanwholaughs.png" },
+    { title: "Firepunch", author: "Tatsuki Fujimoto", reason: "A ruined world full of pain and cruelty, yet through all the suffering it reminds us to keep living.", image: "books/firepunch.png" }
   ];
 
+  type Song = { title: string; artist: string; reason: string; image?: string; };
   const favoriteSongs = [
-    { title: "Alberto Balsalm", artist: "Aphex Twin", reason: "Perfect coding soundtrack" },
-    { title: "Veridis Quo", artist: "Daft Punk", reason: "Helps me focus during long coding sessions" },
-    { title: "Adagio for strings", artist: "Tiesto", reason: "Synthwave vibes for late-night programming" },
-    { title: "Serenity", artist: "Armin Van Buuren", reason: "Emotional and inspiring for creative work" }
+    { title: "Alberto Balsalm", artist: "Aphex Twin", reason: "Perfect coding soundtrack", image: "songs/albertobalsalm.png" },
+    { title: "Veridis Quo", artist: "Daft Punk", reason: "Helps me focus during long coding sessions", image: "songs/veridisquo.png" },
+    { title: "Child of the Earth", artist: "Mr Kitty", reason: "Synthwave vibes for late-night programming", image: "songs/childoftheearth.png" },
+    { title: "Children", artist: "Robert Miles", reason: "Emotional and inspiring for creative work", image: "songs/children.png" }
   ];
 
   const handleSubmitRecommendation = (type: 'film' | 'book' | 'song', form: any, setForm: any) => {
@@ -39,7 +42,7 @@ export default function PersonalCornerPage() {
       toast.error('Please fill in all fields');
       return;
     }
-    
+
     toast.success(`Thanks for the ${type} recommendation!`);
     setForm({ title: '', reason: '', recommender: '' });
   };
@@ -70,27 +73,18 @@ export default function PersonalCornerPage() {
           </div>
 
           <div className="grid gap-6 mb-12">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {favoriteFilms.map((film, index) => (
-                <Card key={index}>
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg">{film.title}</CardTitle>
-                    <CardDescription>{film.year}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{film.reason}</p>
-                  </CardContent>
-                </Card>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {favoriteFilms.map((f) => (
+                <FavoriteCard
+                  key={f.title}
+                  image={f.image}
+                  title={f.title}
+                  subtitle={f.year}
+                  reason={f.reason}
+                />
               ))}
             </div>
-            
-            <div className="relative">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaW5lbWElMjBtb3ZpZSUyMHRoZWF0ZXJ8ZW58MXx8fHwxNzU3NTY4NzQwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Cinema"
-                className="w-full h-64 object-cover rounded-lg"
-              />
-            </div>
+
           </div>
 
           {/* Film Recommendation Form */}
@@ -122,7 +116,7 @@ export default function PersonalCornerPage() {
                 value={filmForm.reason}
                 onChange={(e) => setFilmForm({ ...filmForm, reason: e.target.value })}
               />
-              <Button 
+              <Button
                 onClick={() => handleSubmitRecommendation('film', filmForm, setFilmForm)}
                 className="gap-2"
               >
@@ -148,26 +142,16 @@ export default function PersonalCornerPage() {
           </div>
 
           <div className="grid gap-6 mb-12">
-            <div className="grid md:grid-cols-2 gap-6">
-              {favoriteBooks.map((book, index) => (
-                <Card key={index}>
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg">{book.title}</CardTitle>
-                    <CardDescription>by {book.author}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{book.reason}</p>
-                  </CardContent>
-                </Card>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {favoriteBooks.map((b) => (
+                <FavoriteCard
+                  key={b.title}
+                  image={b.image}
+                  title={b.title}
+                  subtitle={`by ${b.author}`}
+                  reason={b.reason}
+                />
               ))}
-            </div>
-            
-            <div className="relative">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1652305489491-789257d2e95c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib29rcyUyMGxpYnJhcnklMjByZWFkaW5nfGVufDF8fHx8MTc1NzY0MjQzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Books and library"
-                className="w-full h-64 object-cover rounded-lg"
-              />
             </div>
           </div>
 
@@ -200,7 +184,7 @@ export default function PersonalCornerPage() {
                 value={bookForm.reason}
                 onChange={(e) => setBookForm({ ...bookForm, reason: e.target.value })}
               />
-              <Button 
+              <Button
                 onClick={() => handleSubmitRecommendation('book', bookForm, setBookForm)}
                 className="gap-2"
               >
@@ -226,26 +210,16 @@ export default function PersonalCornerPage() {
           </div>
 
           <div className="grid gap-6 mb-12">
-            <div className="grid md:grid-cols-2 gap-6">
-              {favoriteSongs.map((song, index) => (
-                <Card key={index}>
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg">{song.title}</CardTitle>
-                    <CardDescription>by {song.artist}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{song.reason}</p>
-                  </CardContent>
-                </Card>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {favoriteSongs.map((s) => (
+                <FavoriteCard
+                  key={s.title}
+                  image={s.image}
+                  title={s.title}
+                  subtitle={`by ${s.artist}`}
+                  reason={s.reason}
+                />
               ))}
-            </div>
-            
-            <div className="relative">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1586363970578-1d95f492f014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtdXNpYyUyMGhlYWRwaG9uZXMlMjB2aW55bHxlbnwxfHx8fDE3NTc2MTE4ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Music and headphones"
-                className="w-full h-64 object-cover rounded-lg"
-              />
             </div>
           </div>
 
@@ -278,7 +252,7 @@ export default function PersonalCornerPage() {
                 value={songForm.reason}
                 onChange={(e) => setSongForm({ ...songForm, reason: e.target.value })}
               />
-              <Button 
+              <Button
                 onClick={() => handleSubmitRecommendation('song', songForm, setSongForm)}
                 className="gap-2"
               >
