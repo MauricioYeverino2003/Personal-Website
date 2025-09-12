@@ -14,24 +14,24 @@ export default function PersonalCornerPage() {
   const [songForm, setSongForm] = useState({ title: '', reason: '', recommender: '' });
 
   const favoriteFilms = [
-    { title: "The Social Network", year: "2010", reason: "Great portrayal of tech entrepreneurship and coding culture" },
-    { title: "Her", year: "2013", reason: "Fascinating exploration of AI and human connection" },
-    { title: "Ex Machina", year: "2014", reason: "Thought-provoking take on artificial intelligence" },
-    { title: "The Matrix", year: "1999", reason: "Classic cyberpunk that got me interested in computers" }
+    { title: "Cinema Paradiso", year: "1988", reason: "Perfect potrayal of life and love, my favorite film and the comfort of my soul, everytime I see it life makes sense" },
+    { title: "Solaris", year: "1972", reason: "No matter how long we travel through the cosmos, we will carry the weight of the human condition with us, inescapably" },
+    { title: "A Clockwork Orange", year: "1971", reason: "A bizarre collision of absuridity and dread. No really, the film is so absurd but beautifully made that has become one o fmy favorites"},
+    { title: "Blade Runner: Director's Cut", year: "2007", reason: "Cyberpunk dystopian society clashes with desire of replicants to experience being human." }
   ];
 
   const favoriteBooks = [
-    { title: "Clean Code", author: "Robert C. Martin", reason: "Essential reading for any developer" },
-    { title: "The Pragmatic Programmer", author: "David Thomas", reason: "Practical wisdom for software development" },
-    { title: "Klara and the Sun", author: "Kazuo Ishiguro", reason: "Beautiful story about AI consciousness" },
-    { title: "Project Hail Mary", author: "Andy Weir", reason: "Perfect blend of science and problem-solving" }
+    { title: "La Ciudad Y los Perros", author: "Mario Vargas Llosa", reason: "Essential reading for any developer" },
+    { title: "Beneath the wheel", author: "Hermann Hesse", reason: "A reminder that chasing success and studies can break you. Caring for your soul and not losing yourself in the pressure is what keeps you truly alive."},
+    { title: "The Man Who Laughs", author: "Victor Hugo", reeason: "A disfigured man cast aside, rises from humble means to a life of power. In that climb his heart and values are tested against the weight of his new world."},
+    { title: "Firepunch", author: "Tatsuki Fujimoto", reason: "A ruined world full of pain and cruelty, yet through all the suffering it reminds us to keep living."  }
   ];
 
   const favoriteSongs = [
-    { title: "Digital Love", artist: "Daft Punk", reason: "Perfect coding soundtrack" },
-    { title: "Comptine d'un autre été", artist: "Yann Tiersen", reason: "Helps me focus during long coding sessions" },
-    { title: "Resonance", artist: "HOME", reason: "Synthwave vibes for late-night programming" },
-    { title: "Touch", artist: "Daft Punk", reason: "Emotional and inspiring for creative work" }
+    { title: "Alberto Balsalm", artist: "Aphex Twin", reason: "Perfect coding soundtrack" },
+    { title: "Veridis Quo", artist: "Daft Punk", reason: "Helps me focus during long coding sessions" },
+    { title: "Adagio for strings", artist: "Tiesto", reason: "Synthwave vibes for late-night programming" },
+    { title: "Serenity", artist: "Armin Van Buuren", reason: "Emotional and inspiring for creative work" }
   ];
 
   const handleSubmitRecommendation = (type: 'film' | 'book' | 'song', form: any, setForm: any) => {
