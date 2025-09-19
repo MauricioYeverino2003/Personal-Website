@@ -12,7 +12,13 @@ export default function Home() {
       title: "Software Engineering Intern",
       company: "Floras",
       period: "Summer 2025",
-      description: "Developed React components and APIs for user dashboard, improving performance by 30%"
+      description: `Designed and implemented backend workflow for an e-commerce platform, integrating Supabase with external carbon
+credit API’s (Patch.io, Cnaught).\n
+Developed API endpoints for wallet funding, balance tracking, and transaction reconciliation, ensuring 100% data
+integrity with PostgreSQL constraints, preventing financial discrepancies.\n
+Collaborated with a small intern team to deliver full-stack features on a weekly cycle and shipped 10+ features to
+production, accelerating feature delivery by 50%.\n
+`
     }
   ];
 
@@ -22,6 +28,13 @@ export default function Home() {
       description: "A full-stack web application built with React, Node.js, and PostgreSQL",
       technologies: ["React", "Node.js", "PostgreSQL", "Docker"],
       image: "projects/letsmeetat.png"
+    },
+
+    {
+      title: "Superhuman Vertical @ Open Project",
+      description: "Integrated Google Calendar and Gmail APIs into a React/Node.js app, enabling scheduling, reminders, and context-aware email features tested by students and faculty.",
+      technologies: ["React", "Typescript", "Javascript"],
+      image: "projects/superhuman.png"
     }
   ];
 
@@ -95,6 +108,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-2">
                 <Badge variant="secondary">JavaScript</Badge>
                 <Badge variant="secondary">TypeScript</Badge>
+                <Badge variant="secondary">Next.js</Badge>
                 <Badge variant="secondary">React</Badge>
                 <Badge variant="secondary">Node.js</Badge>
                 <Badge variant="secondary">Python</Badge>
@@ -105,7 +119,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <ImageWithFallback
-                src="asjbdasb"
+                src="berkeleymarina.png"
                 alt="Coding workspace"
                 className="w-full h-80 object-cover rounded-lg"
               />
@@ -131,13 +145,13 @@ export default function Home() {
                   <div className="flex justify-between items-start">
                     <div>
                       <CardTitle>{exp.title}</CardTitle>
-                      <CardDescription className="text-lg">{exp.company}</CardDescription>
+                      <CardDescription className="text-lg ">{exp.company}</CardDescription>
                     </div>
                     <Badge variant="outline">{exp.period}</Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{exp.description}</p>
+                  <p className="text-muted-foreground whitespace-pre-line">{exp.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -168,8 +182,10 @@ export default function Home() {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <CardTitle>{project.title}</CardTitle>
-                    <Button variant="ghost" size="sm" className="gap-1">
-                      <ExternalLink className="w-4 h-4" />
+                    <Button asChild variant="ghost" size="sm" className="gap-1">
+                      <Link href={"https://lets-meet-omega.vercel.app/"}>
+                          <ExternalLink className="w-4 h-4" />
+                      </Link>
                     </Button>
                   </div>
                   <CardDescription>{project.description}</CardDescription>
@@ -190,7 +206,7 @@ export default function Home() {
       {/* Resume  */}
       <section id="resume" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl mb-4">Resume & CV</h2>
+          <h2 className="text-3xl mb-4">Resume</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Download my latest resume to learn more about my education, experience, and skills.
           </p>

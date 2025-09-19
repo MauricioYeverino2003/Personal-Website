@@ -51,4 +51,3 @@ alter table public.songs enable row level security;
 ```
 
 YOUR DATABASE IS SET. I'll give you a script to retrieve your recomendations.
-

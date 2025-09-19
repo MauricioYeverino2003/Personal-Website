@@ -15,7 +15,7 @@ export function FavoriteCard({
   return (
     <Card className="overflow-hidden">
       {image ? (
-        <div className="relative w-full aspect-[3/4] sm:aspect-[16/9]">
+        <div className="relative w-full aspect-[2/3] ">
           <ImageWithFallback
             src={image}
             alt={title}

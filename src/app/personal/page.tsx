@@ -30,15 +30,15 @@ export default function PersonalCornerPage() {
 
   type Film = { title: string; year: string; reason: string; image?: string; };
   const favoriteFilms = [
-    { title: "Cinema Paradiso", year: "1988", reason: "Perfect potrayal of life and love, my favorite film and the comfort of my soul, everytime I see it life makes sense", image: "films/cinemaparadiso.png" },
-    { title: "Solaris", year: "1972", reason: "No matter how long we travel through the cosmos, we will carry the weight of the human condition with us, inescapably", image: "films/solaris.png" },
+    { title: "Cinema Paradiso", year: "1988", reason: "Perfect potrayal of life and love, my favorite film and the comfort of my soul, everytime I see it life makes sense again!", image: "films/cinemaparadiso.png" },
+    { title: "Solaris", year: "1972", reason: "No matter how long we travel through the cosmos, we will carry the weight of the human condition with us, inescapably.", image: "films/solaris.png" },
     { title: "A Clockwork Orange", year: "1971", reason: "A bizarre collision of absuridity and dread. No really, the film is so absurd but beautifully made that has become one o fmy favorites", image: "films/aclockworkorange.png" },
     { title: "Blade Runner: Director's Cut", year: "2007", reason: "Cyberpunk dystopian society clashes with desire of replicants to experience being human.", image: "films/bladerunner.png" }
   ];
 
   type Book = { title: string; author: string; reason: string; image?: string; };
   const favoriteBooks = [
-    { title: "La Ciudad Y los Perros", author: "Mario Vargas Llosa", reason: "Essential reading for any developer", image: "books/laciudadylosperros.png" },
+    { title: "La Ciudad Y los Perros", author: "Mario Vargas Llosa", reason: "In this coming of age novel, the cadets\’ journey from adolescence to adulthood unfolds within the Leoncio Prado Military Academy, a world that mirrors the wider hypocrisies of Peruvian society. The novel exposes how the same institutions that shape the boys also condemn them for reflecting their own corruption.", image: "books/laciudadylosperros.png" },
     { title: "Beneath the wheel", author: "Hermann Hesse", reason: "A reminder that chasing success and studies can break you. Caring for your soul and not losing yourself in the pressure is what keeps you truly alive.", image: "books/beneaththewheel.png" },
     { title: "The Man Who Laughs", author: "Victor Hugo", reason: "A disfigured man cast aside, rises from humble means to a life of power. In that climb his heart and values are tested against the weight of his new world.", image: "books/themanwholaughs.png" },
     { title: "Firepunch", author: "Tatsuki Fujimoto", reason: "A ruined world full of pain and cruelty, yet through all the suffering it reminds us to keep living.", image: "books/firepunch.png" }
@@ -46,10 +46,10 @@ export default function PersonalCornerPage() {
 
   type Song = { title: string; artist: string; reason: string; image?: string; };
   const favoriteSongs = [
-    { title: "Alberto Balsalm", artist: "Aphex Twin", reason: "Perfect coding soundtrack", image: "songs/albertobalsalm.png" },
-    { title: "Veridis Quo", artist: "Daft Punk", reason: "Helps me focus during long coding sessions", image: "songs/veridisquo.png" },
-    { title: "Child of the Earth", artist: "Mr Kitty", reason: "Synthwave vibes for late-night programming", image: "songs/childoftheearth.png" },
-    { title: "Children", artist: "Robert Miles", reason: "Emotional and inspiring for creative work", image: "songs/children.png" }
+    { title: "Alberto Balsalm", artist: "Aphex Twin", reason: "“Alberto Balsalm” is Aphex Twin at his most approachable: Dreamy synths, and a haunting warmth that feels timeless.", image: "songs/albertobalsalm.png" },
+    { title: "Veridis Quo", artist: "Daft Punk", reason: "It carries a bittersweet, almost mystical feeling — calm and contemplative, but with a quiet tension underneath.", image: "songs/veridisquo.png" },
+    { title: "I see right through to you", artist: "Dj Encore", reason: "The song feels like pure longing dressed as trance — the vocals ache with desire to be understood, while the beat keeps pushing forward, like chasing something just out of reach.", image: "songs/iseerightthroughtoyou.png" },
+    { title: "Children", artist: "Robert Miles", reason: "\“Children\” feels full of longing, with a piano melody that aches for something distant. It\’s sad but also soothing, like holding onto a memory you don’t want to let go of.", image: "songs/children.png" }
   ];
 
   return (
