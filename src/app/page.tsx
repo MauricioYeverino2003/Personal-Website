@@ -5,6 +5,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from 'src/c
 import { Badge } from 'src/components/badge';
 import { ImageWithFallback } from 'src/components/ImageWithFallback';
 import Link from "next/link";
+import ProjectCard from 'src/components/ProjectCard';
+import { Project } from 'src/types/Project';
 
 export default function Home() {
   const experiences = [
@@ -22,19 +24,21 @@ production, accelerating feature delivery by 50%.\n
     }
   ];
 
-  const projects = [
+  const projects: Array<Project> = [
     {
       title: "LetsMeetAt",
       description: "A full-stack web application built with React, Node.js, and PostgreSQL",
       technologies: ["React", "Node.js", "PostgreSQL", "Docker"],
-      image: "projects/letsmeetat.png"
+      image: "projects/letsmeetat.png",
+      link: "https://lets-meet-omega.vercel.app/"
     },
 
     {
       title: "Superhuman Vertical @ Open Project",
       description: "Integrated Google Calendar and Gmail APIs into a React/Node.js app, enabling scheduling, reminders, and context-aware email features tested by students and faculty.",
       technologies: ["React", "Typescript", "Javascript"],
-      image: "projects/superhuman.png"
+      image: "projects/superhuman.png",
+      link: undefined
     }
   ];
 
@@ -171,33 +175,10 @@ production, accelerating feature delivery by 50%.\n
 
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="aspect-video">
-                  <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <CardTitle>{project.title}</CardTitle>
-                    <Button asChild variant="ghost" size="sm" className="gap-1">
-                      <Link href={"https://lets-meet-omega.vercel.app/"}>
-                          <ExternalLink className="w-4 h-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="secondary">{tech}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <ProjectCard
+              key={index}
+              project={project}
+              />
             ))}
           </div>
         </div>
