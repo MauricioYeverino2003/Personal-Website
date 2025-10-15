@@ -44,6 +44,7 @@ production, accelerating feature delivery by 50%.\n
 
   return (
     <div className="min-h-screen bg-background">
+
       {/*About me*/}
       <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
@@ -88,6 +89,59 @@ production, accelerating feature delivery by 50%.\n
           </div>
         </div>
       </section>
+
+      {/* Projects */}
+      <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl mb-4">Projects & Portfolio</h2>
+            <p className="text-muted-foreground">
+              Some of the projects I've worked on recently
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <ProjectCard
+              key={index}
+              project={project}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl mb-4">Experience</h2>
+            <p className="text-muted-foreground">
+              My journey in software development through internships and projects
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {experiences.map((exp, index) => (
+              <Card key={index}>
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle>{exp.title}</CardTitle>
+                      <CardDescription className="text-lg ">{exp.company}</CardDescription>
+                    </div>
+                    <Badge variant="outline">{exp.period}</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground whitespace-pre-line">{exp.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Description */}
       <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto">
@@ -128,58 +182,6 @@ production, accelerating feature delivery by 50%.\n
                 className="w-full h-80 object-cover rounded-lg"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl mb-4">Experience</h2>
-            <p className="text-muted-foreground">
-              My journey in software development through internships and projects
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle>{exp.title}</CardTitle>
-                      <CardDescription className="text-lg ">{exp.company}</CardDescription>
-                    </div>
-                    <Badge variant="outline">{exp.period}</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground whitespace-pre-line">{exp.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Projects */}
-      <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl mb-4">Projects & Portfolio</h2>
-            <p className="text-muted-foreground">
-              Some of the projects I've worked on recently
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <ProjectCard
-              key={index}
-              project={project}
-              />
-            ))}
           </div>
         </div>
       </section>
@@ -231,4 +233,5 @@ production, accelerating feature delivery by 50%.\n
     </div >
   );
 }
+
 
